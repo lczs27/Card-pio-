@@ -9,7 +9,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       margin: 0; 
-      padding: 0; 
+      padding: 0; /* Corrigido para remover o padding que causava problemas no layout */
       min-height: 100vh;
     }
     .container {
@@ -92,7 +92,7 @@
     }
     .timeline-item {
       display: flex;
-      align-items: center; /* Alinha verticalmente os itens */
+      align-items: center; 
       margin: 15px 0;
       padding: 15px;
       background: white;
@@ -106,14 +106,14 @@
       border-radius: 20px;
       font-weight: bold;
       margin-right: 15px;
-      min-width: 80px; /* Garante uma largura mínima para o "Café", "Almoço", etc. */
+      min-width: 80px; 
       text-align: center;
-      flex-shrink: 0; /* Impede que o botão encolha */
+      flex-shrink: 0; 
     }
-    .timeline-item div:last-child { /* Estilo para o texto da descrição da refeição */
-        flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
-        word-wrap: break-word; /* Quebra palavras longas para evitar overflow */
-        overflow-wrap: break-word; /* Versão mais moderna do word-wrap */
+    .timeline-item div:last-child { 
+        flex-grow: 1; 
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
     }
     .shopping-list {
       background: #fff3cd;
@@ -231,3 +231,191 @@
     <div class="content">
       <div class="objective">
         <h2>🎯 OBJETIVO PRINCIPAL</h2>
+        <p>Perda de gordura com preservação de massa muscular, alto desempenho no treino, prático, econômico e baseado em alimentos comuns na Espanha.</p>
+      </div>
+
+      <div class="training-highlight">
+        ⏰ TREINO: 19h00 às 21h30 (sem alimentação nesse intervalo)
+      </div>
+
+      <div class="section">
+        <h2>📊 Metas Nutricionais Diárias</h2>
+        <div class="macros-grid">
+          <div class="macro-card">
+            <div class="macro-value">170-200g</div>
+            <div class="macro-name">Proteína</div>
+          </div>
+          <div class="macro-card">
+            <div class="macro-value">250-300g</div>
+            <div class="macro-name">Carboidratos</div>
+          </div>
+          <div class="macro-card">
+            <div class="macro-value">60-70g</div>
+            <div class="macro-name">Gorduras</div>
+          </div>
+          <div class="macro-card">
+            <div class="macro-value">~2600</div>
+            <div class="macro-name">Calorias</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🕐 Cronograma de Refeições</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">Café</div>
+            <div>
+              <strong>7h-9h:</strong> Base energética para o dia. Proteína + carboidratos complexos + frutas para energia sustentada.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Lanche</div>
+            <div>
+              <strong>10h-11h:</strong> Manutenção dos níveis de energia. Proteína + frutas + gorduras boas para saciedade.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Almoço</div>
+            <div>
+              <strong>12h-14h:</strong> Refeição principal. Proteína completa + carboidratos + vegetais para nutrientes.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Pré-Treino</div>
+            <div>
+              <strong>17h-18h:</strong> Energia rápida + proteína para performance. Digestão rápida antes do treino.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Jantar</div>
+            <div>
+              <strong>22h-23h:</strong> Recuperação pós-treino. Proteína para reparação muscular + carboidratos para reposição.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Ceia</div>
+            <div>
+              <strong>Antes dormir:</strong> Proteína de digestão lenta para recuperação noturna.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🏆 Por Que Este Plano Funciona</h2>
+        <div class="benefits">
+          <div class="benefit-item">
+            <div class="benefit-number">1</div>
+            <div>
+              <strong>Alto em proteína:</strong> Ajuda a preservar massa muscular durante o déficit calórico e acelera a recuperação pós-treino.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-number">2</div>
+            <div>
+              <strong>Distribui bem carboidratos:</strong> Fornece energia ao longo do dia e ao redor do treino para máxima performance.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-number">3</div>
+            <div>
+              <strong>Foco em alimentos simples e reais:</strong> Evita processados e ingredientes que você não gosta, mantendo a adesão.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-number">4</div>
+            <div>
+              <strong>Adaptação aos horários do treino:</strong> Sem refeições entre 18h e 21h30, otimizando pré e pós-treino.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-number">5</div>
+            <div>
+              <strong>Quantidade ajustada:</strong> Garantindo performance sem excesso calórico, ideal para seu peso, altura e rotina intensa.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-number">6</div>
+            <div>
+              <strong>Diversidade planejada:</strong> 3 meses de opções variadas baseadas no que você come, evitando enjoar.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🛒 Lista de Compras Semanal</h2>
+        <div class="shopping-list">
+          <div class="shopping-category">
+            <h4>🥩 Proteínas:</h4>
+            <div class="shopping-items">
+              <div class="shopping-item">1,5kg peito de frango</div>
+              <div class="shopping-item">1kg carne magra (morcillo, ternera magra)</div>
+              <div class="shopping-item">800g peixe (merluza, salmón)</div>
+              <div class="shopping-item">30 ovos</div>
+              <div class="shopping-item">1kg iogurte natural ou grego</div>
+              <div class="shopping-item">(opcional) Whey protein</div>
+            </div>
+          </div>
+
+          <div class="shopping-category">
+            <h4>🍚 Carboidratos:</h4>
+            <div class="shopping-items">
+              <div class="shopping-item">2kg arroz</div>
+              <div class="shopping-item">1,5kg batata</div>
+              <div class="shopping-item">Pão integral (2 unidades)</div>
+              <div class="shopping-item">Aveia (500g)</div>
+            </div>
+          </div>
+
+          <div class="shopping-category">
+            <h4>🍌 Frutas e Verduras:</h4>
+            <div class="shopping-items">
+              <div class="shopping-item">7 bananas</div>
+              <div class="shopping-item">5 maçãs ou peras</div>
+              <div class="shopping-item">3 laranjas</div>
+              <div class="shopping-item">Tomate, pepino, cebola, cenoura</div>
+              <div class="shopping-item">Pimiento, alface</div>
+            </div>
+          </div>
+
+          <div class="shopping-category">
+            <h4>🥜 Outros:</h4>
+            <div class="shopping-items">
+              <div class="shopping-item">Azeite de oliva virgem extra</div>
+              <div class="shopping-item">Sal, pimenta, especiarias</div>
+              <div class="shopping-item">Leite ou bebida vegetal (sem açúcar)</div>
+              <div class="shopping-item">Amêndoas ou nozes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>⚠️ Dicas Importantes</h2>
+        <div class="warning">
+          <h4>🔥 Horários Críticos:</h4>
+          <p><strong>18h-21h30:</strong> Período sem alimentação durante o treino. Hidrate-se bem!</p>
+          
+          <h4>💡 Substitições Permitidas:</h4>
+          <p>• Frango ↔ Peixe ↔ Carne magra</p>
+          <p>• Arroz ↔ Batata ↔ Aveia</p>
+          <p>• Banana ↔ Maçã ↔ Pera</p>
+          
+          <h4>📏 Controle das Porções:</h4>
+          <p>Use a palma da mão para proteínas e o punho fechado para carboidratos como referência.</p>
+          
+          <h4>💧 Hidratação:</h4>
+          <p>Mínimo 3L de água por dia, especialmente durante o treino.</p>
+        </div>
+      </div>
+
+      <div class="section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h2>🚀 Foco na Consistência</h2>
+        <p style="font-size: 1.2em;">Lembre-se: resultados vêm da consistência, não da perfeição. Siga o plano 80% do tempo e ajuste conforme necessário!</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
