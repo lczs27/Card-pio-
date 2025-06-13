@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio Rotativo</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+    h1, h2 { color: #333; }
+    .dia { background: white; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .refeicao { margin: 10px 0; }
+    .checkbox { margin-right: 10px; }
+    label.done { text-decoration: line-through; color: gray; }
+    .semana-nav { margin-bottom: 20px; }
+    button { padding: 5px 10px; margin: 5px; border-radius: 5px; border: none; background-color: #007BFF; color: white; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+  </style>
+</head>
+<body>
+  <h1>Cardápio Rotativo - 3 Meses</h1>
+  <div class="semana-nav">
+    <button onclick="semanaAnterior()">Semana Anterior</button>
+    <span id="semanaLabel"></span>
+    <button onclick="proximaSemana()">Próxima Semana</button>
+  </div>
+  <div id="cardapio"></div>
+
+  <script>
+    const opcoes = [
+      {
+        cafe: 'Ovos mexidos + banana + arroz',
+        lanche: 'Iogurte + maçã + amêndoas',
+        almoco: 'Frango + arroz + salada',
+        preTreino: 'Banana + 2 ovos cozidos',
+        jantar: 'Peixe + tomate + batata',
+        ceia: 'Leite + aveia'
+      },
+      {
+        cafe: 'Shake de banana, leite e whey',
+        lanche: 'Iogurte + pera',
+        almoco: 'Carne magra + batata + legumes',
+        preTreino: 'Ovos cozidos + banana',
+        jantar: 'Omelete + salada + pão integral',
+        ceia: '1 ovo cozido + fruta'
+      },
+      {
+        cafe: 'Ovos + aveia + banana',
+        lanche: 'Leite + maçã',
+        almoco: 'Peixe + arroz + legumes',
+        preTreino: 'Shake proteico',
+        jantar: 'Frango grelhado + cenoura ralada',
+        ceia: 'Iogurte + banana'
+      }
+    ];
+
+    let semanaAtual = 0;
+
+    function renderCardapio() {
+      const container = document.getElementById('cardapio');
+      container.innerHTML = '';
+      document.getElementById('semanaLabel').innerText = `Semana ${semanaAtual + 1}`;
+
+      for (let dia = 0; dia < 7; dia++) {
+        const diaBox = document.createElement('div');
+        diaBox.className = 'dia';
+        const diaTitulo = document.createElement('h2');
+        diaTitulo.innerText = `Dia ${dia + 1}`;
+        diaBox.appendChild(diaTitulo);
+
+        const opcao = opcoes[(semanaAtual * 7 + dia) % opcoes.length];
+
+        for (let [ref, comida] of Object.entries(opcao)) {
+          const div = document.createElement('div');
+          div.className = 'refeicao';
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          input.className = 'checkbox';
+          input.id = `sem${semanaAtual}-dia${dia}-${ref}`;
+          const label = document.createElement('label');
+          label.htmlFor = input.id;
+          label.innerText = `${ref.toUpperCase()}: ${comida}`;
+
+          input.addEventListener('change', () => {
+            if (input.checked) {
+              label.classList.add('done');
+            } else {
+              label.classList.remove('done');
+            }
+          });
+
+          div.appendChild(input);
+          div.appendChild(label);
+          diaBox.appendChild(div);
+        }
+
+        container.appendChild(diaBox);
+      }
+    }
+
+    function semanaAnterior() {
+      if (semanaAtual > 0) semanaAtual--;
+      renderCardapio();
+    }
+
+    function proximaSemana() {
+      semanaAtual++;
+      renderCardapio();
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registrado', reg))
+          .catch(err => console.log('Erro no Service Worker', err));
+      });
+    }
+
+    renderCardapio();
+  </script>
+</body>
+</html>
